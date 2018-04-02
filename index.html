@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<title>Simple JS Form Validation</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="app.js" defer></script>
+</head>
+<body>
+	<section id="test-form">
+		<div id="error-container">
+			<div id="error-message"></div>
+		</div>
+		<form>
+			<div>
+				<div class="dropdown">
+					<button id="prefix-btn" onclick="toggleDropdown('prefix')" class="dropbtn" value="">Prefix</button>
+					<div id="prefix" class="dropdown-content">
+						<a href="#" onclick="selectOpt('Mr.', event)">Mr.</a>
+						<a href="#" onclick="selectOpt('Mrs.', event)">Mrs.</a>
+						<a href="#" onclick="selectOpt('Ms.', event)">Ms.</a>
+					</div>
+				</div>
+				<label>First Name</label><input type="text" id="first-name" name="first-name">
+				<label>Last Name</label><input type="text" id="first-name" name="first-name">
+			</div>
+			<div>
+				<label>Email</label><input type="email" id="email" name="email">
+				<label>Password</label><input type="password" id="password" name="password">
+			</div>
+			<input type="submit" name="submit" value="Submit">
+		</form>
+	</section>
+</body>
+</html>

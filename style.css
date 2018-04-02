@@ -1,0 +1,45 @@
+section#test-form {
+	background: linear-gradient(to bottom right, #c89fff, #B3E5FC);(
+	);
+}
+
+/*Dropdown*/
+#test-form .dropdown {
+    display: inline-block;
+    margin: 5px;
+}
+
+#test-form .dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#test-form .dropbtn:hover {
+    background-color: #2980B9;
+}
+
+#test-form .dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+#test-form .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+#test-form .dropdown-content a:hover {background-color: #ddd}
+
+#test-form .dropdown .dropdown-content.show {display:block;}
+}
+/*End Dropdown*/
