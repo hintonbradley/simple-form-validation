@@ -3,34 +3,81 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
-	<title>Simple JS Form Validation</title>
+	<title>Agent Signup</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<script type="text/javascript" src="app.js" defer></script>
+	<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous" ></script>
+	<script type="text/javascript" src="app5.js" defer></script>
 </head>
 <body>
-	<section id="test-form">
-		<div id="error-container">
-			<div id="error-message"></div>
-		</div>
-		<form>
-			<div>
-				<div class="dropdown">
-					<button id="prefix-btn" onclick="toggleDropdown('prefix')" class="dropbtn" value="">Prefix</button>
-					<div id="prefix" class="dropdown-content">
-						<a href="#" onclick="selectOpt('Mr.', event)">Mr.</a>
-						<a href="#" onclick="selectOpt('Mrs.', event)">Mrs.</a>
-						<a href="#" onclick="selectOpt('Ms.', event)">Ms.</a>
-					</div>
+	<section id="agent-signup-form">
+		<div class="signup-container">
+			<div class="left">
+				<div class=agent-form-header>
+					<h1>SIGN UP NOW</h1>
 				</div>
-				<label>First Name</label><input type="text" id="first-name" name="first-name">
-				<label>Last Name</label><input type="text" id="first-name" name="first-name">
+				<div id="error-container">
+					<div id="error-message"></div>
+				</div>
+				<form id="agentSignup" name="agentSignup" action="#">
+					<div id="agent-form-first">
+						<div class="form-row">
+							<select id="prefix" name="prefix" onblur="dropdownCheck('prefix')">
+								<option selected disabled value=''>Prefix</option>
+								<option value="Ms.">Ms.</option>
+								<option value="Mr.">Mr.</option>
+								<option value="Mrs.">Mrs.</option>
+							</select>
+							<input type="text" id="first-name" name="first-name" placeholder="First name" onblur="blankInputCheck('first-name')">
+							<input type="text" id="last-name" name="last-name" placeholder="Last name" onblur="blankInputCheck('last-name')">
+						</div>
+						<div class="form-row">
+							<input type="email" id="email" name="email" placeholder="Email address" onblur="blankInputCheck('email'), dataValidCheck('email')">
+							<input type="password" id="password" name="password" placeholder="Password" onblur="blankInputCheck('password'), dataValidCheck('password')">
+						</div>
+						<div class="form-row">
+							<input type="text" id="mobile-number" name="mobile-number" placeholder="Mobile number" onblur="blankInputCheck('mobile-number'), dataValidCheck('mobile-number')">
+							<span id="licensed-box">
+								<input type="checkbox" id="licensed" name="licensed" onchange="licenseCheck()"/>
+								<label>Are you licensed?</label>
+							</span>
+						</div>
+						<div class="form-row">
+							<select id="plan" name="plan" onblur="dropdownCheck('plan')">
+								<option selected disabled value=''>Choose a plan</option>
+								<option value="monthly">Monthly ($49/mth)</option>
+								<option value="yearly">Yearly ($444/yr)</option>
+							</select>
+							<span class="tooltip">
+								<span class='tooltip-text'>Nestiny will automatically continue your membership on a monthly or yearly basis unless you unsubscribe. There are no refunds or credits for partial months or remainder of year-long membership.</span>
+								<i class="fas fa-question"></i>
+							</span>
+						</div>
+						<div id="first-half-btn">
+							<button onclick="validateForm(event)">One more step</button>
+						</div>
+					</div>
+					<div id="agent-form-second">
+						<div class="form-row">
+							<input type="text" id="credit-card-number" name="credit-card-number" placeholder="1234 1234 1234 1234" onblur="blankInputCheck('credit-card-number'), ccCheck()">
+							<input type="text" id="credit-card-date" name="credit-card-date" placeholder="MM / YY" onblur="blankInputCheck('credit-card-date'), ccDateCheck()">
+							<input type="text" id="cvc" name="cvc" placeholder="CVC" onblur="blankInputCheck('cvc'), cvcCheck()">
+						</div>
+						<div class="form-row">
+							<select id="referral" name="referral" onblur="dropdownCheck('referral')">
+								<option selected disabled value=''>How did you hear about us?</option>
+								<option value="email">Email</option>
+								<option value="direct-mail">Direct Mail</option>
+								<option value="facebook">Facebook</option>
+							</select>
+						</div>
+						<input type="submit" name="submit" value="Submit">
+					</div>
+				</form>
 			</div>
-			<div>
-				<label>Email</label><input type="email" id="email" name="email">
-				<label>Password</label><input type="password" id="password" name="password">
+			<div class='right'>
+				<img src="sample.png" alt="Join now!">
 			</div>
-			<input type="submit" name="submit" value="Submit">
-		</form>
+		</div>
 	</section>
 </body>
 </html>

@@ -1,45 +1,248 @@
-section#test-form {
-	background: linear-gradient(to bottom right, #c89fff, #B3E5FC);(
-	);
+section#agent-signup-form {
+    background-image: linear-gradient(
+        to right, 
+        #21B6A8, #c89fff
+    );
 }
 
-/*Dropdown*/
-#test-form .dropdown {
-    display: inline-block;
-    margin: 5px;
+#agent-signup-form .signup-container {
+    display: flex;
+    justify-content: center;
 }
 
-#test-form .dropbtn {
-    background-color: #3498DB;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
+#agent-signup-form .signup-container .left {
+    max-width: 600px;
+    margin: 0px 5vw;
+}
+
+#agent-signup-form .signup-container .right {
+    min-width: 300px;
+    position: relative;
+}
+
+#agent-signup-form .signup-container .right img {
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    margin-top: -150px;
+}
+
+#agent-signup-form .left .agent-form-header {
+    margin-left: 5px;
+    color: #fff;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+#agent-signup-form .signup-container form .form-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+#agent-signup-form input {
+    height: 35px;
     border-radius: 5px;
+    margin: 5px;
+    border: 1px solid #c6c6c6;
+    font-size: 20px;
+    padding-left: 5px;
+}
+
+#agent-signup-form input[type="checkbox"]{
+    width: 15px;
+    height: 15px;
+}
+
+#agent-signup-form select {
+    height: 39px;
+    border-radius: 5px;
+    margin: 5px;
+    -webkit-appearance: menulist-button;
+}
+
+#agent-signup-form select#plan, #agent-signup-form select#referral {
+    width: 100%;
+}
+
+#agent-signup-form #email, #agent-signup-form #password, #agent-signup-form #mobile-number, #agent-signup-form #licensed-box {
+    flex-grow: 1;
+}
+
+#agent-signup-form #email, #agent-signup-form #password, #agent-signup-form #mobile-number, #agent-signup-form #licensed-box, #agent-signup-form #credit-card-number {
+    width: 45%;
+}
+
+#agent-signup-form #prefix, #agent-signup-form #credit-card-date, #agent-signup-form #cvc {
+    width: 20%;
+    min-width: 60px;
+}
+
+#agent-signup-form #first-name, #agent-signup-form #last-name {
+    width: 35%;
+}
+
+#agent-signup-form #prefix {
+    flex-grow: ;
+}
+
+#agent-signup-form #first-name, #agent-signup-form #last-name {
+    flex-grow: 3;
+}
+
+#agent-signup-form #credit-card-number {
+    flex-grow: 2;
+}
+
+/*Error handling*/
+#agent-signup-form #error-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#agent-signup-form #error-message {
+    padding: 5px;
+    background-color: pink;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+#agent-signup-form .blank-error, #agent-signup-form .error {
+    border: 2px solid red;
+    color: #000;
+}
+/*End error handling*/
+
+/*Buttons styling*/
+#agent-signup-form button, #agent-signup-form input[type="submit"] {
+    background-color: orange;
+    border-radius: 5px;
+    height: 60px;
+    display: inline-block;
+    font-size: 24px;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 1px 2px #9c9c9c;
+    margin: 7px;
+}
+
+#agent-signup-form button:hover, #agent-signup-form input[type="submit"]:hover {
+    background-color: darkorange;
     cursor: pointer;
 }
+/*End button styling*/
 
-#test-form .dropbtn:hover {
-    background-color: #2980B9;
+/*Placeholder text styling*/
+#agent-signup-form ::-webkit-input-placeholder {
+  color: #c6c6c6;
+  font-size: 20px;
+  padding-left: 5px;
+}
+#agent-signup-form ::-moz-placeholder {
+  color: #c6c6c6;
+  font-size: 20px;
+  padding-left: 5px;
+}
+#agent-signup-form :-ms-input-placeholder {
+  color: #c6c6c6;
+  font-size: 20px;
+  padding-left: 5px;
+}
+#agent-signup-form :-moz-placeholder {
+  color: #c6c6c6;
+  font-size: 20px;
+  padding-left: 5px;
+}
+/*End placeholder text styling*/
+
+/*Positioning of licensed box (text and checkbox)*/
+#agent-signup-form span#licensed-box {
+    position: relative;
+    top: 50%;
+    transform: translateY(5px);
+    height: 30px;
+    border-radius: 5px;
+    margin: 0px 5px;
+    padding-top: 6px;
 }
 
-#test-form .dropdown .dropdown-content {
-    display: none;
+#agent-signup-form input#licensed { 
+    position:relative;
+    left: 155px; 
+    vertical-align:middle;
+    margin: 0px;
+}
+/*End positioning of checkbox field*/
+
+/*Checkbox*/
+#agent-signup-form span#licensed-box label {  
+    position:relative;
+    left: -20px;
+    display:inline-block;    
+    vertical-align:middle;
+    padding-left: 5px;
+    font-size: 20px;
+}
+
+/*Popup text styling*/
+#agent-signup-form .fa-question {
+    margin-top: 7px;
+    font-size: 12px;
+}
+
+#agent-signup-form .tooltip {
+    position: relative;
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+}
+
+#agent-signup-form .tooltip .tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+    width: 300px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
     position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    top: -98px;
+    left: -155px;
+    -webkit-transition: width 2s;
+    transition: width 2s;
+    transition: opacity .5s ease-in-out;
+    -moz-transition: opacity .5s ease-in-out;
+    -webkit-transition: opacity .5s ease-in-out;
 }
 
-#test-form .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+#agent-signup-form .tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+/*End popup text styling*/
+
+
+@media only screen and (max-width: 900px) {
+    #agent-signup-form .signup-container .right {
+        display: none;
+    }
+    #agent-signup-form .left {
+        width: 100%;
+    }
 }
 
-#test-form .dropdown-content a:hover {background-color: #ddd}
-
-#test-form .dropdown .dropdown-content.show {display:block;}
+@media only screen and (max-width: 440px) {
+    section#agent-signup-form {
+        min-width: 380px;
+    }
+    #agent-signup-form #mobile-number {
+        width: 38%;
+    }
+    /*#agent-signup-form .left {
+        min-width: 400px;
+    }*/
 }
-/*End Dropdown*/
