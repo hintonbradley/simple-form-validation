@@ -1,8 +1,12 @@
-section#agent-signup-form {
+body {
     background-image: linear-gradient(
         to right, 
         #21B6A8, #c89fff
     );
+}
+
+section#agent-signup-form {
+    padding: 60px 0px;
 }
 
 #agent-signup-form .signup-container {
@@ -40,6 +44,14 @@ section#agent-signup-form {
     justify-content: space-between;
 }
 
+#agent-signup-form select {
+    height: 39px;
+    margin: 5px;
+    -webkit-appearance: menulist-button;
+    font-size: 20px;
+    color: #c6c6c6;
+}
+
 #agent-signup-form input {
     height: 35px;
     border-radius: 5px;
@@ -52,13 +64,6 @@ section#agent-signup-form {
 #agent-signup-form input[type="checkbox"]{
     width: 15px;
     height: 15px;
-}
-
-#agent-signup-form select {
-    height: 39px;
-    border-radius: 5px;
-    margin: 5px;
-    -webkit-appearance: menulist-button;
 }
 
 #agent-signup-form select#plan, #agent-signup-form select#referral {
@@ -75,7 +80,7 @@ section#agent-signup-form {
 
 #agent-signup-form #prefix, #agent-signup-form #credit-card-date, #agent-signup-form #cvc {
     width: 20%;
-    min-width: 60px;
+    min-width: 80px;
 }
 
 #agent-signup-form #first-name, #agent-signup-form #last-name {
@@ -110,12 +115,11 @@ section#agent-signup-form {
 
 #agent-signup-form .blank-error, #agent-signup-form .error {
     border: 2px solid red;
-    color: #000;
 }
 /*End error handling*/
 
 /*Buttons styling*/
-#agent-signup-form button, #agent-signup-form input[type="submit"] {
+#agent-signup-form button.form-btn, #agent-signup-form input[type="submit"] {
     background-color: orange;
     border-radius: 5px;
     height: 60px;
@@ -128,7 +132,7 @@ section#agent-signup-form {
     margin: 7px;
 }
 
-#agent-signup-form button:hover, #agent-signup-form input[type="submit"]:hover {
+#agent-signup-form button.form-btn:hover, #agent-signup-form input[type="submit"]:hover {
     background-color: darkorange;
     cursor: pointer;
 }
