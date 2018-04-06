@@ -47,7 +47,7 @@ $(function() {
         } else {
             var licensed = document.forms['agentSignup']['licensed'];
             var licensedBox = document.getElementById('licensed-box');
-            var msg='Please confirm you are a licensed Agent';
+            var msg='Please confirm you are human';
             var isErrorClass=licensedBox.classList.contains('error');
             var isErrorMsg=this.errorMessages.indexOf(msg)!=-1;
             if(licensed.checked==false) {
