@@ -57,7 +57,7 @@ section.agent-signup-form {
 }
 
 .agent-signup-form select {
-    height: 39px;
+    height: 40px;
     margin: 5px;
     -webkit-appearance: menulist-button;
     font-size: 20px;
@@ -219,6 +219,10 @@ section.agent-signup-form {
     opacity: 1;
 }
 /*End popup text styling*/
+
+.agent-signup-form .error-msgs, .agent-signup-form .form-two {
+    display: none;
+}
 
 
 @media only screen and (max-width: 900px) {

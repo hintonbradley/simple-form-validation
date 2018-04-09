@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script> -->
     <script src='app.js'></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     <link href="style.css" rel="stylesheet">
@@ -14,7 +14,7 @@
 				<div class=agent-form-header>
 					<h1>SIGN UP NOW</h1>
 				</div>
-				<div id="error-container" class="txt-ctr m-btm-10">
+				<div id="error-container" class="error-msgs txt-ctr m-btm-10">
 					<div id="error-message" class="err-display"></div>
 				</div>
 				<form id="agentSignup" name="agentSignup" action="#">
@@ -30,7 +30,7 @@
 									</select>
 								</div>
 							</div>
-							<div class="form-row full-width">
+							<div class="form-row flex-equal-width">
 								<input type="text" id="first-name" name="first-name" placeholder="First name" class="flex-equal-width w-20">
 								<input type="text" id="last-name" name="last-name" placeholder="Last name" class="flex-equal-width w-20">
 							</div>
@@ -61,7 +61,7 @@
 							<button id="validate-btn" class="form-btn">One more step</button>
 						</div>
 					</div>
-					<div id="agent-form-second">
+					<div id="agent-form-second" class="form-two">
 						<div class="form-row">
 							<input type="text" id="credit-card-number" name="credit-card-number" placeholder="1234 1234 1234 1234" class="">
 							<input type="text" id="credit-card-date" name="credit-card-date" placeholder="MM / YY" class="sm-min-width">

@@ -1,5 +1,4 @@
-//jQuery short-hand for $(document).ready(function() { ... });
-$(function() {
+document.addEventListener("DOMContentLoaded", function(event) { 
 
     // FORM CONSTRUCTOR
     function Form() {
@@ -29,22 +28,13 @@ $(function() {
         };
     };
 
-    Form.prototype.addBlankInputCheck = function(string, _this) {
-        return function(){
-            _this.blankInputCheck(string);
-        }
-    };
-
-    Form.prototype.addValidCheck = function (string, _this) {
-        return function() {
-            _this.dataValidCheck(string);
-        }
-    };
-
-    Form.prototype.licenseCheck = function (string, _this) {
+    Form.prototype.licenseCheck = function () {
+        console.log('license check hit', this.validate)
         if (!this.validate) {
+            conslole.log('returning false');
             return false;
         } else {
+            console.log('cont')
             var licensed = document.forms['agentSignup']['licensed'];
             var licensedBox = document.getElementById('licensed-box');
             var msg='Please confirm you are human';
@@ -185,7 +175,6 @@ $(function() {
                         this.data[agentInputs[i]]=null;
                     }
                 } else {
-                    console.log('not false hit.')
                     if (isErrorClass) {
                         errorField.classList.remove('blank-error');
                         if(this.errorMessages.indexOf(msg)!=-1) {
@@ -336,22 +325,22 @@ $(function() {
 
     // Initializing our event listeners
     Form.prototype.init = function() {
-        document.getElementById('error-container').style.display ='none';
-        // document.getElementById('agent-form-second').style.display ='none';
         var _this = this;
         for(var i=0; i<this.allInputs.length; i++){
             if(this.allInputs[i]!='submit-form')
             var el = this.allInputs[i];
             var id = this.allInputs[i].id;
             if(id!='licensed'){
-                $('#' + id).blur(this.addBlankInputCheck( id, _this));
+                var inputField = document.getElementById(id);
+                inputField.addEventListener('blur', this.blankInputCheck.bind(this, id));
                 if(id=='email'||id=='password'||id=='mobile-number'){
-                    $('#' + id).blur(this.addValidCheck( id, _this) );
+                    inputField.addEventListener('blur', this.dataValidCheck.bind(this, id));
                 }
             }
         }
         this.valBtn.addEventListener('click', this.validateForm.bind(_this));
-        this.license.addEventListener('blur', this.licenseCheck.bind(_this));
+        console.log(this.license);
+        this.license.addEventListener('click', this.licenseCheck.bind(_this));
         this.prefix.addEventListener('focusout', this.dropdownCheck.bind(this, 'prefix'));
         this.plan.addEventListener('focusout', this.dropdownCheck.bind(this, 'plan'));
         this.submit.addEventListener('click', this.submitForm.bind(this));
