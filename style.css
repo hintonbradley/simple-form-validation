@@ -9,11 +9,11 @@ section.agent-signup-form {
     padding: 60px 0px;
 }
 
-.txt-ctr {
+.agent-signup-form .txt-ctr {
     text-align: center;
 }
 
-.m-btm-10 {
+.agent-signup-form .m-btm-10 {
     margin-bottom: 10px;
 }
 
@@ -90,7 +90,7 @@ section.agent-signup-form {
     min-width: 95px;
 }
 
-.w-20 {
+.agent-signup-form .w-20 {
     width: 20%;
 }
 
@@ -207,7 +207,7 @@ section.agent-signup-form {
     z-index: 1;
     top: -98px;
     left: -155px;
-    -webkit-transition: width 2s;
+    -webkit-tranition: width 2s;
     transition: width 2s;
     transition: opacity .5s ease-in-out;
     -moz-transition: opacity .5s ease-in-out;

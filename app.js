@@ -29,12 +29,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
     };
 
     Form.prototype.licenseCheck = function () {
-        console.log('license check hit', this.validate)
         if (!this.validate) {
-            conslole.log('returning false');
             return false;
         } else {
-            console.log('cont')
             var licensed = document.forms['agentSignup']['licensed'];
             var licensedBox = document.getElementById('licensed-box');
             var msg='Please confirm you are human';
@@ -339,7 +336,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
             }
         }
         this.valBtn.addEventListener('click', this.validateForm.bind(_this));
-        console.log(this.license);
         this.license.addEventListener('click', this.licenseCheck.bind(_this));
         this.prefix.addEventListener('focusout', this.dropdownCheck.bind(this, 'prefix'));
         this.plan.addEventListener('focusout', this.dropdownCheck.bind(this, 'plan'));
