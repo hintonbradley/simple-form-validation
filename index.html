@@ -3,46 +3,51 @@
 <head>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src='app.js'></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     <link href="style.css" rel="stylesheet">
 	<title>Test OOP form</title>
 </head>
 <body>
-	<section id="agent-signup-form">
+	<section class="agent-signup-form">
 		<div class="signup-container">
 			<div class="left">
 				<div class=agent-form-header>
 					<h1>SIGN UP NOW</h1>
 				</div>
-				<div id="error-container">
-					<div id="error-message"></div>
+				<div id="error-container" class="txt-ctr m-btm-10">
+					<div id="error-message" class="err-display"></div>
 				</div>
 				<form id="agentSignup" name="agentSignup" action="#">
 					<div id="agent-form-first">
-						<div class="form-row">
-							<div id="mainselection">
-								<select id="prefix" name="prefix">
-									<option selected disabled value=''>Prefix</option>
-									<option value="Ms.">Ms.</option>
-									<option value="Mr.">Mr.</option>
-									<option value="Mrs.">Mrs.</option>
-								</select>
+						<div class='form-row'>
+							<div class="">
+								<div id="mainselection">
+									<select id="prefix" name="prefix" class="sm-min-width">
+										<option selected disabled value=''>Prefix</option>
+										<option value="Ms.">Ms.</option>
+										<option value="Mr.">Mr.</option>
+										<option value="Mrs.">Mrs.</option>
+									</select>
+								</div>
 							</div>
-							<input type="text" id="first-name" name="first-name" placeholder="First name">
-							<input type="text" id="last-name" name="last-name" placeholder="Last name">
+							<div class="form-row full-width">
+								<input type="text" id="first-name" name="first-name" placeholder="First name" class="flex-equal-width w-20">
+								<input type="text" id="last-name" name="last-name" placeholder="Last name" class="flex-equal-width w-20">
+							</div>
 						</div>
 						<div class="form-row">
-							<input type="email" id="email" name="email" placeholder="Email address" dataValidCheck('email')">
-							<input type="password" id="password" name="password" placeholder="Password">
+							<input type="email" id="email" name="email" placeholder="Email address" class="flex-equal-width">
+							<input type="password" id="password" name="password" placeholder="Password" class="flex-equal-width">
 						</div>
 						<div class="form-row">
-							<input type="text" id="mobile-number" name="mobile-number" placeholder="Mobile number">
-							<span id="licensed-box">
-								<input type="checkbox" id="licensed" name="licensed"/>
+							<input type="text" id="mobile-number" name="mobile-number" placeholder="Mobile number" class="flex-equal-width">
+							<span id="licensed-box" class="lic-container flex-equal-width">
+								<input type="checkbox" id="licensed" name="licensed">
 								<label>Are you human?</label>
 							</span>
 						</div>
 						<div class="form-row">
-							<select id="plan" name="plan">
+							<select id="plan" class="full-width" name="plan">
 								<option selected disabled value=''>Choose a plan</option>
 								<option value="monthly">Monthly ($49/mth)</option>
 								<option value="yearly">Yearly ($444/yr)</option>
@@ -58,12 +63,12 @@
 					</div>
 					<div id="agent-form-second">
 						<div class="form-row">
-							<input type="text" id="credit-card-number" name="credit-card-number" placeholder="1234 1234 1234 1234">
-							<input type="text" id="credit-card-date" name="credit-card-date" placeholder="MM / YY">
-							<input type="text" id="cvc" name="cvc" placeholder="CVC">
+							<input type="text" id="credit-card-number" name="credit-card-number" placeholder="1234 1234 1234 1234" class="">
+							<input type="text" id="credit-card-date" name="credit-card-date" placeholder="MM / YY" class="sm-min-width">
+							<input type="text" id="cvc" name="cvc" placeholder="CVC" class="sm-min-width">
 						</div>
 						<div class="form-row">
-							<select id="referral" name="referral">
+							<select id="referral" class="full-width" name="referral">
 								<option selected disabled value=''>How did you hear about us?</option>
 								<option value="email">Email</option>
 								<option value="direct-mail">Direct Mail</option>

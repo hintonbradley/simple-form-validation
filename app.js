@@ -337,7 +337,7 @@ $(function() {
     // Initializing our event listeners
     Form.prototype.init = function() {
         document.getElementById('error-container').style.display ='none';
-        document.getElementById('agent-form-second').style.display ='none';
+        // document.getElementById('agent-form-second').style.display ='none';
         var _this = this;
         for(var i=0; i<this.allInputs.length; i++){
             if(this.allInputs[i]!='submit-form')
