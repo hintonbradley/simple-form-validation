@@ -22,6 +22,7 @@
     box-sizing: border-box;
     padding: 0 15px;
     margin: 5px 0;
+    vertical-align: top;
 }
 
  .form-input input, .form-input select, .form-input div {
@@ -37,13 +38,19 @@
     text-indent: -15px;
 }
 
+.input-chbx label {
+    height: 35px;
+    box-sizing: border-box;
+}
+
 .input-chbx input {
     display: inline-block;
-    width: auto;
-    height: auto;
     position: relative;
-    top: -1px;
-    vertical-align: top;
+    top: -2px;
+    vertical-align: middle;
+    width: auto;
+    height: 100%;
+    margin: 0 0 0 5px;
 }
 
 .danger {
@@ -66,4 +73,26 @@
     max-width: 440px;
     margin: 0 auto;
     padding: 0;
+}
+
+form, .form-img {
+    display: inline-block;
+}
+
+form {
+    width: 65%;
+}
+
+.form-img {
+    width: 35%;
+    padding: 3vw;
+    box-sizing: border-box;
+}
+
+.form-img img {
+    width: 100%;
+}
+
+.no-label {
+    margin-top: 24px;
 }

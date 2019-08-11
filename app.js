@@ -54,7 +54,56 @@ document.addEventListener("DOMContentLoaded", function(event) {
             }
         }
 
+        checkEmail (email) {
+            if (!(/^\w+([\.-]?\w+)*@\w([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
+                return true;
+            }
+            return false;
+        }
+
+        checkPassword (password) {
+            if (!(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/.test(password))) {
+                return true;
+            }
+            return false;
+        }
+
+        checkPhone (phone) {
+            if(!(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/.test(phone))) {
+                return true;
+            }
+            return false;
+        }
+
+        checkCreditCard (num) {
+            var visaRegEx = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+            var mastercardRegEx = /^(?:5[1-5][0-9]{14})$/;
+            var amexpRegEx = /^(?:3[47][0-9]{13})$/;
+            var discovRegEx = /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
+            var isValid = false;
+            
+            if (visaRegEx.test(num)) {
+                isValid = true;
+            } else if(mastercardRegEx.test(num)) {
+                isValid = true;
+            } else if(amexpRegEx.test(num)) {
+                isValid = true;
+            } else if(discovRegEx.test(num)) {
+                isValid = true;
+            }
+
+            return !isValid;
+        }
+
+        checkCVV (n) {
+            if(!(/^[0-9]{3,4}$/.test(n))) {
+                return true;
+            }
+            return false;
+        }
+
         validate (inputs) {
+            let values = {};
             for(let i=0; i<inputs.length; i++) {
                 let error = false;
                 let target = null;
@@ -72,58 +121,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 if (target.classList.contains('danger')) {
                     target.classList.remove("danger");
                 }
+                values[name] = val;
 
                 if (!(val)) {
                     error = true;
                 } else if (inputs[i].name === 'email') {
-                    if (!(/^\w+([\.-]?\w+)*@\w([\.-]?\w+)*(\.\w{2,3})+$/.test(inputs[i].value))) {
-                        error = true;
-                    }
+                    error = this.checkEmail(inputs[i].value)
                 } else if (inputs[i].name === 'password') {
-                    if (!(/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/.test(inputs[i].value))) {
-                        error = true;
-                    }
+                    error = this.checkPassword(inputs[i].value);
                 } else if (inputs[i].name === 'phone') {
-                    if(!(/^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/.test(inputs[i].value))) {
-                        error = true;
-                    }
+                    error = this.checkPhone(inputs[i].value);
                 } else if (inputs[i].name === 'credit-card') {
-                    var visaRegEx = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
-                    var mastercardRegEx = /^(?:5[1-5][0-9]{14})$/;
-                    var amexpRegEx = /^(?:3[47][0-9]{13})$/;
-                    var discovRegEx = /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
-                    var isValid = false;
-                    
-                    if (visaRegEx.test(inputs[i].value)) {
-                        isValid = true;
-                    } else if(mastercardRegEx.test(inputs[i].value)) {
-                        isValid = true;
-                    } else if(amexpRegEx.test(inputs[i].value)) {
-                        isValid = true;
-                    } else if(discovRegEx.test(inputs[i].value)) {
-                        isValid = true;
-                    }
-
-                    if(!(isValid)) {
-                        error = true;
-                    }
-                } else if (inputs[i].name === 'expiration') {
-                    if (inputs[i].value.match(/^(0\d|1[0-2])\/\d{2}$/)) {
-                        const {0: month, 1: year} = inputs[i].value.split("/");
-
-                        const expiry = new Date("20"+year, month);
-                        const current = new Date();
-                        
-                        if (!(expiry.getTime() > current.getTime())) {
-                            error = true;
-                        }
-                    } else {
-                        error = true;
-                    }
+                    error = this.checkCreditCard(inputs[i].value);
                 }  else if (inputs[i].name === 'cvv') {
-                    if(!(/^[0-9]{3,4}$/.test(inputs[i].value))) {
-                        error = true;
-                    }
+                    error = this.checkCVV(inputs[i].value)
                 }
 
                 if (error) {
@@ -156,7 +167,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 }
                 return false;
             } else {
-                return true;
+                console.log(values)
+                return values;
             }
         };
 
@@ -190,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             };
 
             if(obj.type==="checkbox") { return "Please confirm " + errorMsgs[obj.name] }
-            if(obj.type==="select-one") { return errorMsgs.select + obj.name }
+            if(obj.type==="select-one") { return errorMsgs.select + obj.name.replace(/-/g, " ") }
             obj.name = obj.name.charAt(0).toUpperCase() + obj.name.slice(1).replace(/-/g, " ");
             if(obj.name==="Cvv") { obj.name="CVV"}
             if (obj.type==="password") {
@@ -209,11 +221,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 this.form = e.target.closest('form');
                 this.id = e.target.closest('form').id;
                 let inputs = this.form.getElementsByClassName("form-data");
-                if(this.validate(inputs)) {
-                    alert('submitting!')
+                let isValid = this.validate(inputs);
+                if(isValid) {
+                    alert(isValid)
                     this.form.submit();
                 } else {
-                    console.log('form can not submit')
+                    alert('Form can not submit. Please correct issues below and try submitting again.')
                 }
             }
         }
