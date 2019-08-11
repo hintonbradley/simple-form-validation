@@ -8,7 +8,7 @@
 	<title>OOP validation form</title>
 </head>
 <body>
-	<h1>Form samples created from class Form</h1>
+	<h1 class="main-header">Form samples created from class Form</h1>
 	<section>
 		<form name="testform" id="testform" action="#" method="post">
 			<ul class="error-display"></ul>
@@ -41,7 +41,7 @@
 					<label for="phone">Phone</label>
 					<input class="form-data" type="text" name="phone">
 			</div><div class="form-input input-chbx half no-label" chbx="true">
-				<label class="human"><input name="human" class="input form-data" type="checkbox" /> Label text</label>
+				<label class="human"><input name="human" class="input form-data" type="checkbox" /> Are you human?</label>
 			</div>
 			<div class="form-input full">
 				<label for="full">Select a plan</label>
@@ -97,13 +97,18 @@
 					</div>
 				</div>
 			</div>
-			<button class="form-cancel">Cancel</button>
-			<button class="form-submit">Submit</button>
-		</form><div class="form-img">
+			<div class="btn-container right">
+				<button class="form-cancel form-btn">Cancel</button>
+				<button class="form-submit form-btn">Submit</button>
+			</div>
+		</form>
+		<div class="form-img">
+				<!-- Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quod eaque dolorem quibusdam corporis ab quas voluptas molestias ex, placeat animi eligendi numquam minus expedita error et sunt? Facere, reprehenderit! -->
+			<!-- <div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quod eaque dolorem quibusdam corporis ab quas voluptas molestias ex, placeat animi eligendi numquam minus expedita error et sunt? Facere, reprehenderit!</div> -->
 			<img src="./sample.png" alt="form image">
 		</div>
 	</section>
-
+<hr>
 	<section>
 		<form name="emailform" id="emailform" action="#" method="post">
 			<ul class="error-display"></ul>
@@ -113,12 +118,16 @@
 					<input class="form-data" type="text" name="credit-card">
 				</div><div class="half">
 					<div class="full">
-						<div class="half">
+						<div class="form-input right width100">
+							<label for="cvv">CVV</label>
+							<input class="form-data" type="text" name="cvv">
+						</div>
+						<div class="expand">
 							<div class="full">
 								<div class="form-input half">
 									<label for="expiration-month">Expiration</label>
 									<select class="form-data" name="exipration-month">
-										<option selected disabled value="">Select month</option>
+										<option selected disabled value="">Month</option>
 										<option value="01">January</option>
 										<option value="02">February </option>
 										<option value="03">March</option>
@@ -135,7 +144,7 @@
 								</div><div class="form-input half no-label">
 									<label for="expiration-year"></label>
 									<select class="form-data" name="exipration-year" >
-										<option selected disabled value="">Select year</option>
+										<option selected disabled value="">Year</option>
 										<option value="16"> 2016</option>
 										<option value="17"> 2017</option>
 										<option value="18"> 2018</option>
@@ -145,9 +154,6 @@
 									</select>
 								</div>
 							</div>
-						</div><div class="form-input half">
-							<label for="cvv">CVV</label>
-							<input class="form-data" type="text" name="cvv">
 						</div>
 					</div>
 				</div>

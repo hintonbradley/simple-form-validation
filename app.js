@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     alert(isValid)
                     this.form.submit();
                 } else {
-                    alert('Form can not submit. Please correct issues below and try submitting again.')
+                    console.log('Form can not submit. Please correct issues below and try submitting again.')
                 }
             }
         }

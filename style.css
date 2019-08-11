@@ -1,3 +1,6 @@
+section {
+    font-family: serif;
+}
 .full {
     width: 100%;
 }
@@ -9,6 +12,10 @@
 
 .left {
     float: left;
+}
+
+.right {
+    float: right;
 }
 
 .expand {
@@ -25,11 +32,18 @@
     vertical-align: top;
 }
 
- .form-input input, .form-input select, .form-input div {
+ .form-input input, .form-input select {
     display: block;
     width: 100%;
     box-sizing: border-box;
     height: 35px;
+    box-shadow: none;
+    border: 1px solid #787878;
+    background: rgb(248, 248, 248);
+}
+
+.form-input input, .form-btn, .input-chbx label {
+    border-radius: 5px;
 }
 
 .form-input label {
@@ -77,6 +91,7 @@
 
 form, .form-img {
     display: inline-block;
+    vertical-align: top;
 }
 
 form {
@@ -85,14 +100,61 @@ form {
 
 .form-img {
     width: 35%;
-    padding: 3vw;
-    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+section {
+    position: relative;
 }
 
 .form-img img {
-    width: 100%;
+    width: 250px;
+    height: auto;
+}
+
+.main-header {
+    text-align: center;
 }
 
 .no-label {
-    margin-top: 24px;
+    margin-top: 23px;
+}
+
+select.form-data {
+    font-size: 16px;
+    font-family: serif;
+    min-width: 80px;
+}
+
+.width100 {
+    width: 100px;
+}
+
+.form-btn {
+    width: auto;
+    height: 35px;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.form-cancel {
+    background: orangered;
+}
+
+.form-submit {
+    background: forestgreen;
+}
+
+.input-chbx input {
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(1.5); /* IE */
+  -moz-transform: scale(1.5); /* FF */
+  -webkit-transform: scale(1.5); /* Safari and Chrome */
+  -o-transform: scale(1.5); /* Opera */
+  transform: scale(1.5);
+  padding: 10px;
+  margin-right: 10px;
 }
