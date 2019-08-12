@@ -1,6 +1,7 @@
-section {
-    font-family: serif;
+form {
+    width: 100%;
 }
+
 .full {
     width: 100%;
 }
@@ -48,7 +49,7 @@ section {
 
 .form-input label {
     display: block;
-    padding-left: 15px;
+    padding-left: 20px;
     text-indent: -15px;
 }
 
@@ -94,27 +95,6 @@ form, .form-img {
     vertical-align: top;
 }
 
-form {
-    width: 65%;
-}
-
-.form-img {
-    width: 35%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    text-align: center;
-}
-
-section {
-    position: relative;
-}
-
-.form-img img {
-    width: 250px;
-    height: auto;
-}
-
 .main-header {
     text-align: center;
 }
@@ -123,7 +103,7 @@ section {
     margin-top: 23px;
 }
 
-select.form-data {
+select.form-data, .form-btn {
     font-size: 16px;
     font-family: serif;
     min-width: 80px;
@@ -149,7 +129,6 @@ select.form-data {
 }
 
 .input-chbx input {
-  /* Double-sized Checkboxes */
   -ms-transform: scale(1.5); /* IE */
   -moz-transform: scale(1.5); /* FF */
   -webkit-transform: scale(1.5); /* Safari and Chrome */
@@ -157,4 +136,20 @@ select.form-data {
   transform: scale(1.5);
   padding: 10px;
   margin-right: 10px;
+}
+
+/* media query */
+@media only screen and (max-width: 725px) {
+    .sm-block {
+        display: block;
+    }
+    .sm-block.half {
+        width: 100%;
+    }
+    form {
+        min-width: 340px;
+    }
+    .form-input {
+        padding: 0 5px;
+    }
 }
