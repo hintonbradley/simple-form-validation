@@ -235,6 +235,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // !!params must match form id!!
     const testform = new Form('testform');
     testform.init();
-    const emailform = new Form('emailform');
-    emailform.init();
+    // const emailform = new Form('emailform');
+    // emailform.init();
 });

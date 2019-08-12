@@ -1,3 +1,10 @@
+body {
+    background-image: linear-gradient(
+        to right, 
+        #21B6A8, #c89fff
+    );
+}
+
 form {
     width: 100%;
 }
@@ -68,7 +75,7 @@ form {
     margin: 0 0 0 5px;
 }
 
-.danger {
+.form-input .danger {
     border: 2px solid red;
 }
 
